@@ -45,10 +45,10 @@
         .header-phone:hover { color: var(--accent-hover); }
 
         /* Hero */
-        .hero { background: linear-gradient(135deg, rgba(26,37,47,0.75), rgba(26,37,47,0.88)), url('hero-bg.jpg') no-repeat center center/cover; padding: 70px 0 80px; color: var(--white); }
+        .hero { background: linear-gradient(135deg, rgba(26,37,47,0.75), rgba(26,37,47,0.88)), url('../hero-bg.jpg') no-repeat center center/cover; padding: 70px 0 80px; color: var(--white); }
         .hero-grid { display: grid; grid-template-columns: 1fr; gap: 40px; align-items: center; }
         .hero-text h1 { font-size: 2.6rem; font-weight: 800; line-height: 1.15; margin-bottom: 18px; letter-spacing: -0.5px; }
-        .hero-text h1 span { color: var(--accent); }
+        .hero-text h1 span { color: inherit; }
         .hero-text p { font-size: 1.05rem; margin-bottom: 24px; color: rgba(255,255,255,0.85); line-height: 1.7; }
         .hero-checks { list-style: none; margin-bottom: 28px; }
         .hero-checks li { margin-bottom: 10px; padding-left: 28px; position: relative; color: rgba(255,255,255,0.9); font-size: 15px; }
@@ -62,16 +62,10 @@
         .form-card h3 { margin-bottom: 4px; font-size: 20px; color: var(--primary); text-align: center; font-weight: 700; }
         .form-card > p { font-size: 13px; color: var(--text-light); text-align: center; margin-bottom: 24px; }
         .form-group { margin-bottom: 16px; }
-        .form-group label { display: block; margin-bottom: 6px; font-size: 13px; font-weight: 600; color: var(--primary); text-transform: uppercase; letter-spacing: 0.3px; }
-        .form-group input, .form-group select { width: 100%; padding: 11px 14px; border: 1.5px solid var(--border); border-radius: 6px; font-size: 14px; color: var(--text); font-family: inherit; transition: border-color 0.2s; }
-        .form-group input:focus, .form-group select:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px rgba(231,76,60,0.1); }
-        .radio-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
-        .radio-btn { position: relative; }
-        .radio-btn input { position: absolute; opacity: 0; width: 0; height: 0; }
-        .radio-btn label { display: block; padding: 10px 12px; background: var(--light-bg); border: 1.5px solid var(--border); border-radius: 6px; text-align: center; font-size: 13px; font-weight: 500; cursor: pointer; transition: all 0.2s ease; }
-        .radio-btn input:checked + label { background: var(--primary); color: #fff; border-color: var(--primary); font-weight: 600; }
+        .form-group input, .form-group select, .form-group textarea { width: 100%; padding: 11px 14px; border: 1.5px solid var(--border); border-radius: 6px; font-size: 14px; color: var(--text); font-family: inherit; transition: border-color 0.2s; }
+        .form-group input:focus, .form-group select:focus, .form-group textarea:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px rgba(231,76,60,0.1); }
+        .form-group textarea { resize: vertical; min-height: 100px; }
         .form-card .btn { width: 100%; font-size: 16px; margin-top: 8px; padding: 15px; }
-        .form-divider { border: none; border-top: 1px solid var(--border); margin: 18px 0; }
 
         /* Services */
         .services { padding: 80px 0; }
@@ -82,9 +76,9 @@
         .service-card { border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; background: var(--white); box-shadow: var(--shadow-sm); transition: box-shadow 0.3s, transform 0.3s; }
         .service-card:hover { box-shadow: var(--shadow-md); transform: translateY(-2px); }
         .service-card-header { padding: 20px 24px; font-size: 18px; font-weight: 700; color: var(--white); }
-        .service-card-header.prep { background: var(--accent); }
-        .service-card-header.interior { background: var(--primary); }
-        .service-card-header.exterior { background: #2c3e50; }
+        .service-card-header.prep { background: #4a5568; }
+        .service-card-header.interior { background: #4a5568; }
+        .service-card-header.exterior { background: #4a5568; }
         .service-card-body { padding: 24px; }
         .service-card-body ul { list-style: none; }
         .service-card-body li { margin-bottom: 12px; padding-left: 24px; position: relative; font-size: 14px; color: var(--text); }
@@ -95,7 +89,8 @@
 
         /* Pricing */
         .pricing { padding: 80px 0; background: var(--light-bg); }
-        .pricing-box { background: var(--white); border-radius: var(--radius-lg); border: 1px solid var(--border); padding: 32px; box-shadow: var(--shadow-sm); margin-bottom: 28px; }
+        .pricing-tables-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 28px; }
+        .pricing-box { background: var(--white); border-radius: var(--radius-lg); border: 1px solid var(--border); padding: 32px; box-shadow: var(--shadow-sm); margin-bottom: 0; }
         .pricing-box h3 { color: var(--primary); font-size: 20px; margin-bottom: 6px; font-weight: 700; }
         .pricing-box > p { font-size: 14px; color: var(--text-light); margin-bottom: 16px; }
         .pricing-table { width: 100%; border-collapse: collapse; }
@@ -106,40 +101,59 @@
         .pricing-table tr:last-child td { border-bottom: none; }
         .pricing-table tr:nth-child(even) { background: var(--light-bg); }
         .price-tag { font-weight: 700; color: var(--accent); font-size: 15px; }
-        .pricing-factors { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 28px; }
         .factor-card { background: var(--white); border: 1px solid var(--border); padding: 24px; border-radius: var(--radius-lg); }
         .factor-card h4 { color: var(--primary); margin-bottom: 10px; font-size: 16px; font-weight: 700; }
         .factor-card.accent-border { border-left: 4px solid var(--accent); }
-        .factor-card.primary-border { border-left: 4px solid var(--primary); }
         .factor-card p { font-size: 14px; color: var(--text-light); margin-bottom: 12px; line-height: 1.6; }
         .factor-card ul { list-style: none; padding: 0; }
         .factor-card li { margin-bottom: 8px; font-size: 14px; padding-left: 18px; position: relative; }
         .factor-card li::before { content: '•'; position: absolute; left: 0; color: var(--accent); font-weight: bold; }
-        .metric-highlight { font-weight: 700; font-size: 20px; color: var(--primary); }
-        .metric-highlight span { font-size: 13px; font-weight: 400; color: var(--text-light); }
-        .metric-note { font-size: 12px; color: var(--text-light); margin-top: 4px; }
 
         /* Gallery */
-        .gallery { padding: 80px 0; }
-        .gallery-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; max-width: 960px; margin: 0 auto; }
-        .gallery-item { background: var(--white); border-radius: var(--radius-lg); overflow: hidden; border: 1px solid var(--border); box-shadow: var(--shadow-sm); transition: box-shadow 0.3s, transform 0.3s; cursor: pointer; }
-        .gallery-item:hover { box-shadow: var(--shadow-md); transform: translateY(-3px); }
+        .gallery { padding: 80px 0; background: #111827; }
+        .gallery .section-header h2 { color: var(--white); }
+        .gallery .section-header p { color: rgba(255,255,255,0.6); }
+        .gallery-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4px; max-width: 1140px; margin: 0 auto; }
+        .gallery-item { position: relative; overflow: hidden; cursor: pointer; border-radius: 0; }
+        .gallery-item:first-child { border-radius: var(--radius-lg) 0 0 0; }
+        .gallery-item:nth-child(2) { border-radius: 0 var(--radius-lg) 0 0; }
+        .gallery-item:nth-child(4) { border-radius: 0 0 0 var(--radius-lg); }
+        .gallery-item:last-child { border-radius: 0 0 var(--radius-lg) 0; }
         .gallery-images { display: flex; }
         .gallery-half { width: 50%; position: relative; overflow: hidden; }
-        .gallery-half img { width: 100%; height: 200px; object-fit: cover; }
-        .gallery-badge { position: absolute; top: 8px; left: 8px; background: var(--primary); color: var(--white); padding: 4px 10px; font-size: 11px; font-weight: 700; text-transform: uppercase; border-radius: 4px; letter-spacing: 0.5px; }
-        .gallery-badge.after { background: var(--accent); left: auto; right: 8px; }
-        .gallery-info { padding: 14px 18px; }
-        .gallery-info h4 { color: var(--primary); font-size: 15px; font-weight: 600; margin-bottom: 2px; }
-        .gallery-info p { font-size: 13px; color: var(--text-light); }
+        .gallery-half img { width: 100%; height: 280px; object-fit: cover; display: block; transition: transform 0.4s ease; }
+        .gallery-item:hover .gallery-half img { transform: scale(1.04); }
+        .gallery-badge { position: absolute; top: 10px; left: 10px; background: rgba(26,37,47,0.85); color: var(--white); padding: 5px 12px; font-size: 11px; font-weight: 700; text-transform: uppercase; border-radius: 4px; letter-spacing: 0.8px; backdrop-filter: blur(4px); }
+        .gallery-badge.after { background: rgba(231,76,60,0.9); left: auto; right: 10px; }
+        .gallery-info { position: absolute; bottom: 0; left: 0; right: 0; padding: 32px 16px 14px; background: linear-gradient(transparent, rgba(0,0,0,0.75)); }
+        .gallery-info h4 { color: var(--white); font-size: 14px; font-weight: 600; margin-bottom: 2px; text-shadow: 0 1px 3px rgba(0,0,0,0.5); }
+        .gallery-info p { font-size: 12px; color: rgba(255,255,255,0.65); }
 
-        /* Testimonials */
-        .testimonials { padding: 80px 0; background: var(--light-bg); }
-        .testimonial-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
-        .testimonial-card { padding: 28px; background: var(--white); border-radius: var(--radius-lg); border: 1px solid var(--border); box-shadow: var(--shadow-sm); position: relative; }
-        .testimonial-card::before { content: '"'; position: absolute; top: 16px; left: 24px; font-size: 48px; color: var(--accent); opacity: 0.2; font-family: Georgia, serif; line-height: 1; }
-        .testimonial-card p { font-size: 15px; line-height: 1.7; color: var(--text); font-style: italic; margin-bottom: 16px; padding-top: 12px; }
-        .testimonial-card .client { font-weight: 700; color: var(--primary); font-style: normal; font-size: 14px; }
+        /* Contact Section */
+        .contact-section { padding: 80px 0; background: var(--light-bg); }
+        .contact-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; max-width: 960px; margin: 0 auto; }
+        .contact-info h3 { font-size: 20px; font-weight: 700; color: var(--primary); margin-bottom: 20px; }
+        .contact-info-item { display: flex; gap: 14px; margin-bottom: 20px; align-items: flex-start; }
+        .contact-info-icon { width: 40px; height: 40px; border-radius: 8px; background: #6b7280; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+        .contact-info-icon svg { fill: white; }
+        .contact-info-text { font-size: 14px; color: var(--text); line-height: 1.6; }
+        .contact-info-text strong { display: block; font-size: 13px; color: var(--text-light); font-weight: 500; margin-bottom: 2px; text-transform: uppercase; letter-spacing: 0.4px; }
+        .contact-info-text a { color: var(--primary); text-decoration: none; font-weight: 600; }
+        .contact-info-text a:hover { color: var(--accent); }
+        .contact-serving { margin-top: 24px; font-size: 13px; color: var(--text-light); border-top: 1px solid var(--border); padding-top: 16px; }
+        @media (max-width: 768px) { .contact-inner { grid-template-columns: 1fr; gap: 32px; } }
+        .contact-form-card { background: var(--white); padding: 40px; border-radius: var(--radius-lg); box-shadow: var(--shadow-lg); border: 1px solid var(--border); }
+        .contact-form-card h3 { margin-bottom: 4px; font-size: 22px; color: var(--primary); text-align: center; font-weight: 700; }
+        .contact-form-card > p { font-size: 14px; color: var(--text-light); text-align: center; margin-bottom: 28px; }
+        .contact-form-card .form-group { margin-bottom: 16px; }
+        .contact-form-card .form-group input,
+        .contact-form-card .form-group select,
+        .contact-form-card .form-group textarea { width: 100%; padding: 12px 14px; border: 1.5px solid var(--border); border-radius: 6px; font-size: 15px; color: var(--text); font-family: inherit; transition: border-color 0.2s; background: var(--white); }
+        .contact-form-card .form-group input:focus,
+        .contact-form-card .form-group select:focus,
+        .contact-form-card .form-group textarea:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px rgba(231,76,60,0.1); }
+        .contact-form-card .form-group textarea { resize: vertical; min-height: 110px; }
+        .contact-form-card .btn { width: 100%; font-size: 16px; padding: 15px; margin-top: 8px; }
 
         /* Footer */
         .footer { background: var(--primary); color: rgba(255,255,255,0.7); padding: 56px 0 32px; font-size: 14px; }
@@ -155,17 +169,19 @@
         .wa-float:hover { transform: scale(1.1); }
         .wa-float img { width: 32px; height: 32px; filter: brightness(0) invert(1); }
 
-        /* Modal */
-        .modal-overlay { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.92); }
-        .modal-content { position: relative; margin: auto; width: 92%; max-width: 1000px; height: 90vh; display: flex; align-items: center; justify-content: center; top: 5vh; }
-        .modal-close { position: fixed; top: 20px; right: 24px; color: #fff; font-size: 32px; cursor: pointer; z-index: 1100; background: rgba(255,255,255,0.1); width: 44px; height: 44px; border-radius: 50%; display: flex; align-items: center; justify-content: center; border: none; transition: background 0.2s; }
-        .modal-close:hover { background: rgba(255,255,255,0.2); }
-        .modal-images { display: flex; width: 100%; gap: 8px; height: 100%; }
-        .modal-half { flex: 1; position: relative; overflow: hidden; }
+        /* Modal / Lightbox */
+        .modal-overlay { display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.96); animation: fadeInOverlay 0.2s ease; }
+        @keyframes fadeInOverlay { from { opacity: 0; } to { opacity: 1; } }
+        .modal-content { position: relative; width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 60px 24px 24px; }
+        .modal-close { position: fixed; top: 16px; right: 20px; color: #fff; font-size: 28px; cursor: pointer; z-index: 2100; background: rgba(255,255,255,0.12); width: 44px; height: 44px; border-radius: 50%; display: flex; align-items: center; justify-content: center; border: none; transition: background 0.2s; font-family: inherit; line-height: 1; }
+        .modal-close:hover { background: rgba(255,255,255,0.25); }
+        .modal-title { color: rgba(255,255,255,0.7); font-size: 14px; font-weight: 500; margin-bottom: 12px; letter-spacing: 0.3px; }
+        .modal-images { display: flex; width: 100%; max-width: 1200px; gap: 6px; flex: 1; max-height: calc(100vh - 120px); }
+        .modal-half { flex: 1; position: relative; overflow: hidden; border-radius: 6px; }
         .modal-half img { width: 100%; height: 100%; object-fit: contain; }
-        .modal-label { position: absolute; top: 12px; padding: 8px 14px; font-weight: 700; font-size: 13px; border-radius: 4px; color: white; }
-        .modal-label.before { left: 12px; background: var(--primary); }
-        .modal-label.after { right: 12px; background: var(--accent); }
+        .modal-label { position: absolute; top: 10px; padding: 6px 14px; font-weight: 700; font-size: 12px; border-radius: 4px; color: white; letter-spacing: 0.5px; }
+        .modal-label.before { left: 10px; background: rgba(26,37,47,0.9); }
+        .modal-label.after { right: 10px; background: rgba(231,76,60,0.9); }
 
         /* Form Success */
         .form-success { display: none; text-align: center; padding: 40px 20px; }
@@ -173,13 +189,19 @@
         .form-success p { color: var(--text-light); font-size: 14px; }
 
         /* Responsive */
+        .hero-form-card { display: none; }
+        .hero-prices-btn { display: none; }
         @media (min-width: 992px) {
-            .hero-grid { grid-template-columns: 1.2fr 0.8fr; }
+            .hero-grid { grid-template-columns: 1fr 1fr; }
+            .hero-wa-btn { display: none; }
+            .hero-form-card { display: block; }
+            .hero-call-btn { display: none; }
+            .hero-prices-btn { display: inline-flex; }
         }
         @media (max-width: 991px) {
             .hero-text h1 { font-size: 2rem; }
             .services-grid { grid-template-columns: 1fr; }
-            .pricing-factors { grid-template-columns: 1fr; }
+            .pricing-tables-grid { grid-template-columns: 1fr; }
             .testimonial-grid { grid-template-columns: 1fr; }
             .footer-grid { grid-template-columns: 1fr; gap: 32px; }
         }
@@ -200,9 +222,9 @@
     <header class="header">
         <div class="container header-inner">
             <img src="logo.png" alt="Neart Decorating" class="header-logo">
-            <a href="tel:02921680320" class="header-phone">
+            <a href="tel:07548173831" class="header-phone">
                 <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24 11.36 11.36 0 003.58.57 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1 11.36 11.36 0 00.57 3.58 1 1 0 01-.25 1.02l-2.2 2.19z"/></svg>
-                029 2168 0320
+                07548 173831
             </a>
         </div>
     </header>
@@ -212,16 +234,17 @@
         <section class="hero">
             <div class="container hero-grid">
                 <div class="hero-text">
-                    <h1>Premium Painting & Decorating Across <span>Cardiff</span></h1>
-                    <p>Transforming domestic and commercial spaces with flawless finishes. Dependable, fully insured local tradesmen. Get your free, detailed project estimation today.</p>
+                    <h1>Premium Painting and Decorating in Cardiff</h1>
+                    <p>Transforming domestic and commercial spaces with flawless finishes. Dependable, fully insured local tradesmen. Get your free, detailed quote today.</p>
                     <ul class="hero-checks">
-                        <li>Advanced dust-free sanding systems</li>
-                        <li>Specialized residential team</li>
-                        <li>Free written scopes within 24 hours</li>
+                        <li>Dust-free sanding technology</li>
+                        <li>Specialised residential team</li>
+                        <li>Free written quotes within 24 hours</li>
                     </ul>
                     <div class="hero-ctas">
-                        <a href="#quote-form" class="btn">Get a Detailed Quote</a>
-                        <a href="https://wa.me/447548173831?text=Hi%20Neart%20Decorating,%20I'd%20like%20a%20quote%20for%20my%20decorating%20project.%20I%20can%20text%20photos." class="btn btn-whatsapp" target="_blank" rel="noopener noreferrer">
+                        <a href="#detailed-quote" class="btn hero-prices-btn" onclick="document.getElementById('detailed-quote').scrollIntoView({behavior:'smooth'}); return false;">Our Prices</a>
+                        <a href="tel:07548173831" class="btn hero-call-btn">Call Now: 07548 173831</a>
+                        <a href="https://wa.me/447548173831?text=Hi%20Neart%20Decorating,%20I'd%20like%20a%20quote%20for%20my%20decorating%20project.%20I%20can%20text%20photos." class="btn btn-whatsapp hero-wa-btn" target="_blank" rel="noopener noreferrer">
                             <img src="whatsapp-icon.png" alt="" class="wa-icon">
                             WhatsApp Us
                         </a>
@@ -229,46 +252,33 @@
                 </div>
 
                 <!-- Lead Form -->
-                <div class="form-card" id="quote-form">
+                <div class="form-card hero-form-card" id="quote-form">
                     <h3>Tell Us About Your Project</h3>
-                    <p>One of our team will get in touch for a further discussion.</p>
+                    <p>We'll get back to you within 30–60 minutes.</p>
                     
                     <form id="leadForm">
                         <div class="form-group">
-                            <label>Property Scope</label>
-                            <div class="radio-grid">
-                                <div class="radio-btn">
-                                    <input type="radio" id="scope_interior" name="project_scope" value="Interior Only" checked>
-                                    <label for="scope_interior">Interior Only</label>
-                                </div>
-                                <div class="radio-btn">
-                                    <input type="radio" id="scope_exterior" name="project_scope" value="Exterior Only">
-                                    <label for="scope_exterior">Exterior Only</label>
-                                </div>
-                            </div>
-                        </div>
-
-                        <hr class="form-divider">
-
-                        <div class="form-group">
-                            <label for="name">Your Name *</label>
-                            <input type="text" id="name" name="name" required placeholder="John Doe">
-                        </div>
-                        <div class="form-group">
-                            <label for="phone">Phone Number *</label>
-                            <input type="tel" id="phone" name="phone" required placeholder="07123 456789">
-                        </div>
-                        <div class="form-group">
-                            <label for="postcode">Cardiff Postcode *</label>
-                            <input type="text" id="postcode" name="postcode" required placeholder="e.g. CF10">
+                            <select id="project_scope" name="project_scope" required>
+                                <option value="" disabled selected>Select type of work *</option>
+                                <option value="Interior">Interior</option>
+                                <option value="Exterior">Exterior</option>
+                            </select>
                         </div>
 
                         <div class="form-group">
-                            <label for="message">Your Message (Optional)</label>
-                            <textarea id="message" name="message" placeholder="Tell us more about your project..." style="width: 100%; padding: 11px 14px; border: 1.5px solid var(--border); border-radius: 6px; font-size: 14px; color: var(--text); font-family: inherit; resize: vertical; min-height: 100px; transition: border-color 0.2s;"></textarea>
+                            <input type="text" id="name" name="name" required placeholder="Your Name *">
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" id="phone" name="phone" required placeholder="Phone Number *">
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="email" name="email" required placeholder="Email *">
+                        </div>
+                        <div class="form-group">
+                            <textarea id="message" name="message" placeholder="Tell us more about your project..."></textarea>
                         </div>
 
-                        <button type="submit" class="btn">Submit Project Details</button>
+                        <button type="submit" class="btn">Send</button>
                     </form>
                     <div class="form-success" id="formSuccess">
                         <h3>Thank You!</h3>
@@ -278,70 +288,20 @@
             </div>
         </section>
 
-        <!-- Services -->
-        <section class="services">
-            <div class="container">
-                <div class="section-header">
-                    <h2>Our Professional Decorating Services</h2>
-                    <p>Complete interior, exterior, and surface preparation solutions across Cardiff</p>
-                </div>
-                
-                <div class="services-grid">
-                    <div class="service-card prep">
-                        <div class="service-card-header prep">Preparation & Repairs</div>
-                        <div class="service-card-body">
-                            <ul>
-                                <li>Filling cracks and holes</li>
-                                <li>Sanding and surface preparation</li>
-                                <li>Paint stripping and removal</li>
-                                <li>Plaster patch repairs</li>
-                                <li>Damp stain blocking and sealing</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="service-card interior">
-                        <div class="service-card-header interior">Interior Painting & Decorating</div>
-                        <div class="service-card-body">
-                            <ul>
-                                <li>Interior wall and ceiling painting</li>
-                                <li>Feature wall painting</li>
-                                <li>Door, frame, and skirting board painting</li>
-                                <li>Wallpaper hanging and removal</li>
-                                <li>Lining paper installation</li>
-                                <li>Full room decoration</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="service-card exterior">
-                        <div class="service-card-header exterior">Exterior Painting Services</div>
-                        <div class="service-card-body">
-                            <ul>
-                                <li>Exterior house painting</li>
-                                <li>Fence painting and staining</li>
-                                <li>Decking painting and oiling</li>
-                                <li>Window frames and doors</li>
-                                <li>Garage doors and metalwork</li>
-                                <li>Masonry and weatherproof coatings</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
 
         <!-- Pricing -->
         <section class="pricing" id="detailed-quote">
             <div class="container">
                 <div class="section-header">
-                    <h2>Cardiff Decorating Investment Guide</h2>
-                    <p>Transparent benchmark rates based on regional interior and exterior property metrics</p>
+                    <h2>Our Pricing</h2>
+                    <p>Prices based on property size and type of work.</p>
                 </div>
 
+                <div class="pricing-tables-grid">
+
                 <div class="pricing-box">
-                    <h3>Standard Interior Repaint</h3>
-                    <p>Covers walls, ceilings, and woodwork using premium matching tones with minor prep required.</p>
+                    <h3>Interior Repaint (From &pound;12 / m&sup2;)</h3>
+                    <p>Covers walls, ceilings, and woodwork with premium colour-matched finishes. Includes minor preparation.</p>
                     <table class="pricing-table">
                         <thead>
                             <tr>
@@ -350,16 +310,16 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr><td>1 Bedroom Flat</td><td class="price-tag">&pound;900 &ndash; &pound;1,500</td></tr>
-                            <tr><td>2 Bedroom Flat / House</td><td class="price-tag">&pound;1,500 &ndash; &pound;2,500</td></tr>
-                            <tr><td>3 Bedroom House</td><td class="price-tag">&pound;2,500 &ndash; &pound;4,000</td></tr>
-                            <tr><td>4 Bedroom House (Premium Scope)</td><td class="price-tag">&pound;4,000 &ndash; &pound;6,500+</td></tr>
+                            <tr><td>1 Bedroom Flat</td><td class="price-tag">From &pound;900</td></tr>
+                            <tr><td>2 Bedroom Flat / House</td><td class="price-tag">From &pound;1,500</td></tr>
+                            <tr><td>3 Bedroom House</td><td class="price-tag">From &pound;2,500</td></tr>
+                            <tr><td>4 Bedroom House (Premium Scope)</td><td class="price-tag">From &pound;4,000</td></tr>
                         </tbody>
                     </table>
                 </div>
 
                 <div class="pricing-box">
-                    <h3>Standard Exterior Painting</h3>
+                    <h3>Exterior Painting (From &pound;25 / m&sup2;)</h3>
                     <p>Includes minor masonry washing, stabilizing primer, and premium weather-shield protective coatings.</p>
                     <table class="pricing-table">
                         <thead>
@@ -369,36 +329,17 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr><td>Terraced House Facade (Front Only)</td><td class="price-tag">&pound;850 &ndash; &pound;1,400</td></tr>
-                            <tr><td>2-3 Bedroom Semi-Detached House (Full)</td><td class="price-tag">&pound;1,800 &ndash; &pound;3,200</td></tr>
-                            <tr><td>4 Bedroom Detached House (Premium Scope)</td><td class="price-tag">&pound;3,500 &ndash; &pound;5,500+</td></tr>
-                            <tr><td>External Sub-Elements (Fences, Decks, Trim Packages)</td><td class="price-tag">&pound;400 &ndash; &pound;1,200</td></tr>
+                            <tr><td>Terraced House Facade (Front Only)</td><td class="price-tag">From &pound;850</td></tr>
+                            <tr><td>2-3 Bedroom Semi-Detached House (Full)</td><td class="price-tag">From &pound;1,800</td></tr>
+                            <tr><td>4 Bedroom Detached House (Full)</td><td class="price-tag">From &pound;3,500</td></tr>
+                            <tr><td>Fences, Decks, Trim Packages etc.</td><td class="price-tag">From &pound;400</td></tr>
                         </tbody>
                     </table>
                 </div>
 
-                <div class="pricing-factors">
-                    <div class="factor-card accent-border">
-                        <h4>Condition & Environmental Adjustments</h4>
-                        <p>Final valuations adapt dynamically to physical site demands. Rates scale upward if your project requires:</p>
-                        <ul>
-                            <li>Deep architectural micro-filling, scraping, or sanding</li>
-                            <li>Bespoke stain-blocking (water, soot, or biological external moss)</li>
-                            <li>Specialist access frameworks (advanced scaffolding for high gables)</li>
-                            <li>Extensive peeling paint stripping on weathered outdoor timbers</li>
-                            <li>Drastic tone adjustments demanding multiple coverage coats</li>
-                        </ul>
-                    </div>
-                    <div class="factor-card primary-border">
-                        <h4>Structural Metric Benchmarking</h4>
-                        <p>For rapid budget planning, calculate your property's primary target areas:</p>
-                        <p class="metric-highlight">&pound;12 &ndash; &pound;18 <span>per m&sup2; of floor area (Internal)</span></p>
-                        <p class="metric-note">Bespoke decorative schemes or intricate woodwork treatment plans scale toward &pound;20&ndash;&pound;30+ per m&sup2;.</p>
-                        <br>
-                        <p class="metric-highlight">&pound;25 &ndash; &pound;45 <span>per m&sup2; of wall area (External Masonry)</span></p>
-                        <p class="metric-note">Includes standard multi-coat exterior masonry applications; heavily cracked or rendered surfaces alter final metrics.</p>
-                    </div>
                 </div>
+
+                <p style="font-size:14px; color:var(--text-light); margin-top:4px;">Prices may vary depending on: Extensive prep work (filling, sanding, stripping old paint), Stain or damp treatment, Scaffolding for hard-to-reach areas, Multiple coats for drastic colour changes.</p>
             </div>
         </section>
 
@@ -406,12 +347,12 @@
         <section class="gallery">
             <div class="container">
                 <div class="section-header">
-                    <h2>Recent Transformations in Cardiff</h2>
-                    <p>Real results delivered straight to local residential neighborhoods</p>
+                    <h2>Some of Our Recent Work</h2>
+                    <p>Before and after transformations from homes across Cardiff and surrounding areas.</p>
                 </div>
 
                 <div class="gallery-grid">
-                    <div class="gallery-item" onclick="openModal('interior-1-before.jpg','interior-1-after.jpg')">
+                    <div class="gallery-item" onclick="openModal('interior-1-before.jpg','interior-1-after.jpg','Room Refurb and Feature Wall')">
                         <div class="gallery-images">
                             <div class="gallery-half">
                                 <span class="gallery-badge">Before</span>
@@ -428,7 +369,7 @@
                         </div>
                     </div>
 
-                    <div class="gallery-item" onclick="openModal('interior-2-before.jpg','interior-2-after.jpg')">
+                    <div class="gallery-item" onclick="openModal('interior-2-before.jpg','interior-2-after.jpg','Room Refurbishment and Fireplace Renovation')">
                         <div class="gallery-images">
                             <div class="gallery-half">
                                 <span class="gallery-badge">Before</span>
@@ -445,7 +386,7 @@
                         </div>
                     </div>
 
-                    <div class="gallery-item" onclick="openModal('interior-3-before.jpg','interior-3-after.jpg')">
+                    <div class="gallery-item" onclick="openModal('interior-3-before.jpg','interior-3-after.jpg','Hallway and Staircase Transformation')">
                         <div class="gallery-images">
                             <div class="gallery-half">
                                 <span class="gallery-badge">Before</span>
@@ -462,7 +403,7 @@
                         </div>
                     </div>
 
-                    <div class="gallery-item" onclick="openModal('exterior-1-before.jpg','exterior-1-after.jpg')">
+                    <div class="gallery-item" onclick="openModal('exterior-1-before.jpg','exterior-1-after.jpg','Exterior Paint and Garage')">
                         <div class="gallery-images">
                             <div class="gallery-half">
                                 <span class="gallery-badge">Before</span>
@@ -479,7 +420,24 @@
                         </div>
                     </div>
 
-                    <div class="gallery-item" onclick="openModal('exterior-2-before.jpg','exterior-2-after.jpg')">
+                    <div class="gallery-item" onclick="openModal('exterior-3-before.jpg','exterior-3-after.jpg','Exterior Masonry Repaint')">
+                        <div class="gallery-images">
+                            <div class="gallery-half">
+                                <span class="gallery-badge">Before</span>
+                                <img src="exterior-3-before.jpg" alt="Exterior masonry before" loading="lazy">
+                            </div>
+                            <div class="gallery-half">
+                                <span class="gallery-badge after">After</span>
+                                <img src="exterior-3-after.jpg" alt="Exterior masonry after" loading="lazy">
+                            </div>
+                        </div>
+                        <div class="gallery-info">
+                            <h4>Exterior Masonry Repaint</h4>
+                            <p>Click to view full size</p>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item" onclick="openModal('exterior-2-before.jpg','exterior-2-after.jpg','Exterior Paint')">
                         <div class="gallery-images">
                             <div class="gallery-half">
                                 <span class="gallery-badge">Before</span>
@@ -499,10 +457,11 @@
             </div>
         </section>
 
-        <!-- Modal -->
-        <div class="modal-overlay" id="imageModal">
+        <!-- Lightbox -->
+        <div class="modal-overlay" id="imageModal" role="dialog" aria-modal="true">
             <div class="modal-content">
                 <button class="modal-close" onclick="closeModal()" aria-label="Close">&times;</button>
+                <p class="modal-title" id="modalTitle"></p>
                 <div class="modal-images">
                     <div class="modal-half">
                         <span class="modal-label before">Before</span>
@@ -517,19 +476,76 @@
         </div>
 
         <!-- Testimonials -->
-        <section class="testimonials">
+        <section class="contact-section" id="contact-form">
             <div class="container">
                 <div class="section-header">
-                    <h2>What Cardiff Homeowners Say</h2>
+                    <h2>Get a Free Quote</h2>
+                    <p>Tell us about your project and we'll get back to you within 30–60 minutes.</p>
                 </div>
-                <div class="testimonial-grid">
-                    <div class="testimonial-card">
-                        <p>"Meticulous work on our hallway and living room. They arrived sharp at 8 AM every day and left the place spotless."</p>
-                        <span class="client">Gareth M., Canton</span>
+                <div class="contact-inner">
+                    <div class="contact-form-card">
+                        <form id="contactForm">
+                            <div class="form-group">
+                                <select id="contact_scope" name="project_scope" required>
+                                    <option value="" disabled selected>Select type of work *</option>
+                                    <option value="Interior">Interior</option>
+                                    <option value="Exterior">Exterior</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" id="contact_name" name="name" required placeholder="Your Name *">
+                            </div>
+                            <div class="form-group">
+                                <input type="tel" id="contact_phone" name="phone" required placeholder="Phone Number *">
+                            </div>
+                            <div class="form-group">
+                                <input type="email" id="contact_email" name="email" required placeholder="Email *">
+                            </div>
+                            <div class="form-group">
+                                <textarea id="contact_message" name="message" placeholder="Tell us more about your project..."></textarea>
+                            </div>
+                            <button type="submit" class="btn">Send</button>
+                        </form>
+                        <div class="form-success" id="contactFormSuccess">
+                            <h3>Thank You!</h3>
+                            <p>We've received your details and will be in touch within 24 hours.</p>
+                        </div>
                     </div>
-                    <div class="testimonial-card">
-                        <p>"Neart Decorating completely transformed the outside of our house. The clean lines on the window masonry look incredibly sharp."</p>
-                        <span class="client">Sian D., Cyncoed</span>
+
+                    <div class="contact-info">
+                        <h3>Contact Us Directly</h3>
+                        <div class="contact-info-item">
+                            <div class="contact-info-icon">
+                                <svg width="18" height="18" viewBox="0 0 24 24"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24 11.36 11.36 0 003.58.57 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1 11.36 11.36 0 00.57 3.58 1 1 0 01-.25 1.02l-2.2 2.19z"/></svg>
+                            </div>
+                            <div class="contact-info-text">
+                                <strong>Phone</strong>
+                                <a href="tel:07548173831">07548 173831</a>
+                            </div>
+                        </div>
+                        <div class="contact-info-item">
+                            <div class="contact-info-icon">
+                                <svg width="18" height="18" viewBox="0 0 24 24"><path d="M20 4H4a2 2 0 00-2 2v12a2 2 0 002 2h16a2 2 0 002-2V6a2 2 0 00-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                            </div>
+                            <div class="contact-info-text">
+                                <strong>Email</strong>
+                                <a href="mailto:info@neartconstruction.co.uk">info@neartconstruction.co.uk</a>
+                            </div>
+                        </div>
+                        <div class="contact-info-item">
+                            <div class="contact-info-icon">
+                                <svg width="18" height="18" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 010-5 2.5 2.5 0 010 5z"/></svg>
+                            </div>
+                            <div class="contact-info-text">
+                                <strong>Our Address</strong>
+                                12 Change this address, Cardiff, CFXX XXX
+                            </div>
+                        </div>
+                        <p class="contact-serving">Serving Cardiff, Penarth, Radyr, Rumney, and nearby districts.</p>
+                        <div style="margin-top: 28px; padding-top: 24px; border-top: 1px solid var(--border);">
+                            <h4 style="font-size: 16px; font-weight: 700; color: var(--primary); margin-bottom: 10px;">The Neart Standard</h4>
+                            <p style="font-size: 14px; color: var(--text-light); line-height: 1.7;">Neart Decorating, family-run business and a proud trading name of Neart Construction. We bring generational pride and uncompromising craftsmanship to every property we touch throughout Cardiff.</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -539,21 +555,8 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <div class="footer-grid">
-                <div>
-                    <h4>The Neart Standard</h4>
-                    <p>Neart Decorating, family-run business and a proud trading name of Neart Construction. We bring generational pride and uncompromising craftsmanship to every property we touch throughout Cardiff.</p>
-                </div>
-                <div>
-                    <h4>Direct Contact</h4>
-                    <p><strong>Phone:</strong> <a href="tel:02921680320">029 2168 0320</a></p>
-                    <p><strong>Email:</strong> <a href="mailto:info@neartconstruction.co.uk">info@neartconstruction.co.uk</a></p>
-                    <p style="font-style: italic;"><strong>Our Address:</strong><br>12 Change this address, Cardiff, CFXX XXX</p>
-                    <p style="font-size: 12px; margin-top: 12px; opacity: 0.6;">Serving Cardiff, Penarth, Radyr, Rumney, and nearby districts.</p>
-                </div>
-            </div>
             <div class="footer-bottom">
-                <p>&copy; 2026 Neart Decorating. All Corporate Entity Rights Reserved.</p>
+                <p>&copy; 2026 Neart Decorating. All rights reserved.</p>
             </div>
         </div>
     </footer>
@@ -564,11 +567,12 @@
     </a>
 
     <script>
-        // Modal
-        function openModal(beforeSrc, afterSrc) {
+        // Lightbox
+        function openModal(beforeSrc, afterSrc, title) {
             document.getElementById('beforeImg').src = beforeSrc;
             document.getElementById('afterImg').src = afterSrc;
-            document.getElementById('imageModal').style.display = 'block';
+            document.getElementById('modalTitle').textContent = title || '';
+            document.getElementById('imageModal').style.display = 'flex';
             document.body.style.overflow = 'hidden';
         }
         function closeModal() {
@@ -577,6 +581,49 @@
         }
         document.getElementById('imageModal').addEventListener('click', function(e) {
             if (e.target === this) closeModal();
+        });
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') closeModal();
+        });
+
+        // Contact form (bottom section)
+        document.getElementById('contactForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const form = e.target;
+            const btn = form.querySelector('button[type="submit"]');
+            const originalText = btn.textContent;
+            btn.textContent = 'Sending...';
+            btn.disabled = true;
+
+            const data = {
+                project_scope: form.project_scope.value,
+                name: form.name.value,
+                phone: form.phone.value,
+                email: form.email.value,
+                message: form.message.value
+            };
+
+            try {
+                const res = await fetch('https://neart-form-worker.neartconstruction.workers.dev/submit', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(data)
+                });
+                if (res.ok) {
+                    form.style.display = 'none';
+                    document.getElementById('contactFormSuccess').style.display = 'block';
+                } else {
+                    throw new Error('Server error');
+                }
+            } catch (err) {
+                const subject = encodeURIComponent('New Lead from Website');
+                const body = encodeURIComponent(
+                    `Name: ${data.name}\nPhone: ${data.phone}\nEmail: ${data.email}\nScope: ${data.project_scope}\nMessage: ${data.message}`
+                );
+                window.location.href = `mailto:info@neartconstruction.co.uk?subject=${subject}&body=${body}`;
+                btn.textContent = originalText;
+                btn.disabled = false;
+            }
         });
 
         // Form submission
@@ -589,10 +636,10 @@
             btn.disabled = true;
 
             const data = {
-                project_scope: form.querySelector('input[name="project_scope"]:checked')?.value || '',
+                project_scope: form.project_scope.value,
                 name: form.name.value,
                 phone: form.phone.value,
-                postcode: form.postcode.value,
+                email: form.email.value,
                 message: form.message.value
             };
 
@@ -612,7 +659,7 @@
                 // Fallback: open mailto
                 const subject = encodeURIComponent('New Lead from Website');
                 const body = encodeURIComponent(
-                    `Name: ${data.name}\nPhone: ${data.phone}\nPostcode: ${data.postcode}\nScope: ${data.project_scope}\nSize: ${data.property_size}\nStatus: ${data.property_status}`
+                    `Name: ${data.name}\nPhone: ${data.phone}\nEmail: ${data.email}\nScope: ${data.project_scope}\nMessage: ${data.message}`
                 );
                 window.location.href = `mailto:info@neartconstruction.co.uk?subject=${subject}&body=${body}`;
                 btn.textContent = originalText;
