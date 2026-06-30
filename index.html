@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premium Painters & Decorators in Cardiff | Neart Decorating</title>
+    <meta name="description" content="Looking for reliable, high-end painters and decorators in Cardiff? Neart Decorating offers transparent pricing and flawless architectural finishes.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1a252f;
+            --accent: #e74c3c;
+            --accent-hover: #c0392b;
+            --text: #333333;
+            --text-light: #5a6a7a;
+            --light-bg: #f7f8fa;
+            --white: #ffffff;
+            --border: #e2e8f0;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.08);
+            --shadow-md: 0 4px 12px rgba(0,0,0,0.1);
+            --shadow-lg: 0 12px 40px rgba(0,0,0,0.15);
+            --radius: 8px;
+            --radius-lg: 12px;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; color: var(--text); line-height: 1.6; background: var(--white); -webkit-font-smoothing: antialiased; }
+        img { max-width: 100%; height: auto; display: block; }
+        .container { width: 100%; max-width: 1140px; margin: 0 auto; padding: 0 24px; }
+
+        /* Buttons */
+        .btn { display: inline-flex; align-items: center; justify-content: center; background: var(--accent); color: var(--white); padding: 14px 28px; border: none; border-radius: var(--radius); font-weight: 600; font-size: 15px; text-decoration: none; cursor: pointer; transition: all 0.2s ease; text-align: center; letter-spacing: 0.2px; }
+        .btn:hover { background: var(--accent-hover); transform: translateY(-1px); box-shadow: 0 4px 12px rgba(231,76,60,0.3); }
+        .btn-whatsapp { background: #25D366; }
+        .btn-whatsapp:hover { background: #1da851; box-shadow: 0 4px 12px rgba(37,211,102,0.3); }
+        .btn-outline { background: transparent; border: 2px solid var(--white); color: var(--white); }
+        .btn-outline:hover { background: var(--white); color: var(--primary); box-shadow: none; }
+
+        /* Header */
+        .header { background: var(--white); padding: 16px 0; border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 100; }
+        .header-inner { display: flex; justify-content: space-between; align-items: center; }
+        .header-logo { height: 42px; width: auto; }
+        .header-phone { font-size: 16px; font-weight: 700; color: var(--accent); text-decoration: none; display: flex; align-items: center; gap: 6px; }
+        .header-phone:hover { color: var(--accent-hover); }
+
+        /* Hero */
+        .hero { background: linear-gradient(135deg, rgba(26,37,47,0.75), rgba(26,37,47,0.88)), url('hero-bg.jpg') no-repeat center center/cover; padding: 70px 0 80px; color: var(--white); }
+        .hero-grid { display: grid; grid-template-columns: 1fr; gap: 40px; align-items: center; }
+        .hero-text h1 { font-size: 2.6rem; font-weight: 800; line-height: 1.15; margin-bottom: 18px; letter-spacing: -0.5px; }
+        .hero-text h1 span { color: var(--accent); }
+        .hero-text p { font-size: 1.05rem; margin-bottom: 24px; color: rgba(255,255,255,0.85); line-height: 1.7; }
+        .hero-checks { list-style: none; margin-bottom: 28px; }
+        .hero-checks li { margin-bottom: 10px; padding-left: 28px; position: relative; color: rgba(255,255,255,0.9); font-size: 15px; }
+        .hero-checks li::before { content: '✓'; position: absolute; left: 0; color: #25D366; font-weight: 700; }
+        .hero-ctas { display: flex; gap: 12px; flex-wrap: wrap; }
+        .hero-ctas .btn { padding: 16px 28px; font-size: 16px; }
+        .hero-ctas .wa-icon { height: 22px; width: 22px; margin-right: 8px; filter: brightness(0) invert(1); }
+
+        /* Form */
+        .form-card { background: var(--white); padding: 32px; border-radius: var(--radius-lg); color: var(--text); box-shadow: var(--shadow-lg); }
+        .form-card h3 { margin-bottom: 4px; font-size: 20px; color: var(--primary); text-align: center; font-weight: 700; }
+        .form-card > p { font-size: 13px; color: var(--text-light); text-align: center; margin-bottom: 24px; }
+        .form-group { margin-bottom: 16px; }
+        .form-group label { display: block; margin-bottom: 6px; font-size: 13px; font-weight: 600; color: var(--primary); text-transform: uppercase; letter-spacing: 0.3px; }
+        .form-group input, .form-group select { width: 100%; padding: 11px 14px; border: 1.5px solid var(--border); border-radius: 6px; font-size: 14px; color: var(--text); font-family: inherit; transition: border-color 0.2s; }
+        .form-group input:focus, .form-group select:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px rgba(231,76,60,0.1); }
+        .radio-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+        .radio-btn { position: relative; }
+        .radio-btn input { position: absolute; opacity: 0; width: 0; height: 0; }
+        .radio-btn label { display: block; padding: 10px 12px; background: var(--light-bg); border: 1.5px solid var(--border); border-radius: 6px; text-align: center; font-size: 13px; font-weight: 500; cursor: pointer; transition: all 0.2s ease; }
+        .radio-btn input:checked + label { background: var(--primary); color: #fff; border-color: var(--primary); font-weight: 600; }
+        .form-card .btn { width: 100%; font-size: 16px; margin-top: 8px; padding: 15px; }
+        .form-divider { border: none; border-top: 1px solid var(--border); margin: 18px 0; }
+
+        /* Services */
+        .services { padding: 80px 0; }
+        .section-header { text-align: center; margin-bottom: 48px; }
+        .section-header h2 { font-size: 2rem; font-weight: 800; color: var(--primary); margin-bottom: 10px; letter-spacing: -0.3px; }
+        .section-header p { color: var(--text-light); font-size: 16px; max-width: 600px; margin: 0 auto; }
+        .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+        .service-card { border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; background: var(--white); box-shadow: var(--shadow-sm); transition: box-shadow 0.3s, transform 0.3s; }
+        .service-card:hover { box-shadow: var(--shadow-md); transform: translateY(-2px); }
+        .service-card-header { padding: 20px 24px; font-size: 18px; font-weight: 700; color: var(--white); }
+        .service-card-header.prep { background: var(--accent); }
+        .service-card-header.interior { background: var(--primary); }
+        .service-card-header.exterior { background: #2c3e50; }
+        .service-card-body { padding: 24px; }
+        .service-card-body ul { list-style: none; }
+        .service-card-body li { margin-bottom: 12px; padding-left: 24px; position: relative; font-size: 14px; color: var(--text); }
+        .service-card-body li::before { content: ''; position: absolute; left: 0; top: 7px; width: 8px; height: 8px; border-radius: 50%; }
+        .service-card.prep li::before { background: var(--accent); }
+        .service-card.interior li::before { background: var(--primary); }
+        .service-card.exterior li::before { background: #2c3e50; }
+
+        /* Pricing */
+        .pricing { padding: 80px 0; background: var(--light-bg); }
+        .pricing-box { background: var(--white); border-radius: var(--radius-lg); border: 1px solid var(--border); padding: 32px; box-shadow: var(--shadow-sm); margin-bottom: 28px; }
+        .pricing-box h3 { color: var(--primary); font-size: 20px; margin-bottom: 6px; font-weight: 700; }
+        .pricing-box > p { font-size: 14px; color: var(--text-light); margin-bottom: 16px; }
+        .pricing-table { width: 100%; border-collapse: collapse; }
+        .pricing-table th { background: var(--primary); color: var(--white); padding: 12px 16px; text-align: left; font-weight: 600; font-size: 14px; }
+        .pricing-table th:first-child { border-radius: 6px 0 0 0; }
+        .pricing-table th:last-child { border-radius: 0 6px 0 0; }
+        .pricing-table td { padding: 12px 16px; border-bottom: 1px solid var(--border); font-size: 14px; }
+        .pricing-table tr:last-child td { border-bottom: none; }
+        .pricing-table tr:nth-child(even) { background: var(--light-bg); }
+        .price-tag { font-weight: 700; color: var(--accent); font-size: 15px; }
+        .pricing-factors { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 28px; }
+        .factor-card { background: var(--white); border: 1px solid var(--border); padding: 24px; border-radius: var(--radius-lg); }
+        .factor-card h4 { color: var(--primary); margin-bottom: 10px; font-size: 16px; font-weight: 700; }
+        .factor-card.accent-border { border-left: 4px solid var(--accent); }
+        .factor-card.primary-border { border-left: 4px solid var(--primary); }
+        .factor-card p { font-size: 14px; color: var(--text-light); margin-bottom: 12px; line-height: 1.6; }
+        .factor-card ul { list-style: none; padding: 0; }
+        .factor-card li { margin-bottom: 8px; font-size: 14px; padding-left: 18px; position: relative; }
+        .factor-card li::before { content: '•'; position: absolute; left: 0; color: var(--accent); font-weight: bold; }
+        .metric-highlight { font-weight: 700; font-size: 20px; color: var(--primary); }
+        .metric-highlight span { font-size: 13px; font-weight: 400; color: var(--text-light); }
+        .metric-note { font-size: 12px; color: var(--text-light); margin-top: 4px; }
+
+        /* Gallery */
+        .gallery { padding: 80px 0; }
+        .gallery-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; max-width: 960px; margin: 0 auto; }
+        .gallery-item { background: var(--white); border-radius: var(--radius-lg); overflow: hidden; border: 1px solid var(--border); box-shadow: var(--shadow-sm); transition: box-shadow 0.3s, transform 0.3s; cursor: pointer; }
+        .gallery-item:hover { box-shadow: var(--shadow-md); transform: translateY(-3px); }
+        .gallery-images { display: flex; }
+        .gallery-half { width: 50%; position: relative; overflow: hidden; }
+        .gallery-half img { width: 100%; height: 200px; object-fit: cover; }
+        .gallery-badge { position: absolute; top: 8px; left: 8px; background: var(--primary); color: var(--white); padding: 4px 10px; font-size: 11px; font-weight: 700; text-transform: uppercase; border-radius: 4px; letter-spacing: 0.5px; }
+        .gallery-badge.after { background: var(--accent); left: auto; right: 8px; }
+        .gallery-info { padding: 14px 18px; }
+        .gallery-info h4 { color: var(--primary); font-size: 15px; font-weight: 600; margin-bottom: 2px; }
+        .gallery-info p { font-size: 13px; color: var(--text-light); }
+
+        /* Testimonials */
+        .testimonials { padding: 80px 0; background: var(--light-bg); }
+        .testimonial-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+        .testimonial-card { padding: 28px; background: var(--white); border-radius: var(--radius-lg); border: 1px solid var(--border); box-shadow: var(--shadow-sm); position: relative; }
+        .testimonial-card::before { content: '"'; position: absolute; top: 16px; left: 24px; font-size: 48px; color: var(--accent); opacity: 0.2; font-family: Georgia, serif; line-height: 1; }
+        .testimonial-card p { font-size: 15px; line-height: 1.7; color: var(--text); font-style: italic; margin-bottom: 16px; padding-top: 12px; }
+        .testimonial-card .client { font-weight: 700; color: var(--primary); font-style: normal; font-size: 14px; }
+
+        /* Footer */
+        .footer { background: var(--primary); color: rgba(255,255,255,0.7); padding: 56px 0 32px; font-size: 14px; }
+        .footer-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; margin-bottom: 32px; }
+        .footer h4 { color: var(--white); margin-bottom: 16px; font-size: 15px; text-transform: uppercase; letter-spacing: 0.5px; font-weight: 700; }
+        .footer p { margin-bottom: 10px; line-height: 1.6; }
+        .footer a { color: var(--white); text-decoration: none; transition: opacity 0.2s; }
+        .footer a:hover { opacity: 0.8; }
+        .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 24px; text-align: center; font-size: 12px; color: rgba(255,255,255,0.4); }
+
+        /* WhatsApp Floating Button */
+        .wa-float { position: fixed; bottom: 24px; right: 24px; z-index: 999; background: #25D366; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 16px rgba(37,211,102,0.4); transition: transform 0.2s; text-decoration: none; }
+        .wa-float:hover { transform: scale(1.1); }
+        .wa-float img { width: 32px; height: 32px; filter: brightness(0) invert(1); }
+
+        /* Modal */
+        .modal-overlay { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.92); }
+        .modal-content { position: relative; margin: auto; width: 92%; max-width: 1000px; height: 90vh; display: flex; align-items: center; justify-content: center; top: 5vh; }
+        .modal-close { position: fixed; top: 20px; right: 24px; color: #fff; font-size: 32px; cursor: pointer; z-index: 1100; background: rgba(255,255,255,0.1); width: 44px; height: 44px; border-radius: 50%; display: flex; align-items: center; justify-content: center; border: none; transition: background 0.2s; }
+        .modal-close:hover { background: rgba(255,255,255,0.2); }
+        .modal-images { display: flex; width: 100%; gap: 8px; height: 100%; }
+        .modal-half { flex: 1; position: relative; overflow: hidden; }
+        .modal-half img { width: 100%; height: 100%; object-fit: contain; }
+        .modal-label { position: absolute; top: 12px; padding: 8px 14px; font-weight: 700; font-size: 13px; border-radius: 4px; color: white; }
+        .modal-label.before { left: 12px; background: var(--primary); }
+        .modal-label.after { right: 12px; background: var(--accent); }
+
+        /* Form Success */
+        .form-success { display: none; text-align: center; padding: 40px 20px; }
+        .form-success h3 { color: #25D366; font-size: 20px; margin-bottom: 8px; }
+        .form-success p { color: var(--text-light); font-size: 14px; }
+
+        /* Responsive */
+        @media (min-width: 992px) {
+            .hero-grid { grid-template-columns: 1.2fr 0.8fr; }
+        }
+        @media (max-width: 991px) {
+            .hero-text h1 { font-size: 2rem; }
+            .services-grid { grid-template-columns: 1fr; }
+            .pricing-factors { grid-template-columns: 1fr; }
+            .testimonial-grid { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+        }
+        @media (max-width: 768px) {
+            .hero { padding: 48px 0 56px; }
+            .hero-text h1 { font-size: 1.75rem; }
+            .gallery-grid { grid-template-columns: 1fr; }
+            .hero-ctas .btn { width: 100%; }
+            .form-card { padding: 24px; }
+            .pricing-box { padding: 20px; }
+            .pricing-table th, .pricing-table td { padding: 10px 12px; font-size: 13px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container header-inner">
+            <img src="logo.png" alt="Neart Decorating" class="header-logo">
+            <a href="tel:07548173831" class="header-phone">
+                <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24 11.36 11.36 0 003.58.57 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1 11.36 11.36 0 00.57 3.58 1 1 0 01-.25 1.02l-2.2 2.19z"/></svg>
+                07548 173831
+            </a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container hero-grid">
+                <div class="hero-text">
+                    <h1>Premium Painting & Decorating Across <span>Cardiff</span></h1>
+                    <p>Transforming domestic and commercial spaces with flawless finishes. Dependable, fully insured local tradesmen. Get your free, detailed project estimation today.</p>
+                    <ul class="hero-checks">
+                        <li>Advanced dust-free sanding systems</li>
+                        <li>Specialized residential team</li>
+                        <li>Free written scopes within 24 hours</li>
+                    </ul>
+                    <div class="hero-ctas">
+                        <a href="#quote-form" class="btn">Get a Detailed Quote</a>
+                        <a href="https://wa.me/447548173831?text=Hi%20Neart%20Decorating,%20I'd%20like%20a%20quote%20for%20my%20decorating%20project.%20I%20can%20text%20photos." class="btn btn-whatsapp" target="_blank" rel="noopener noreferrer">
+                            <img src="whatsapp-icon.png" alt="" class="wa-icon">
+                            WhatsApp Us
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Lead Form -->
+                <div class="form-card" id="quote-form">
+                    <h3>Tell Us About Your Project</h3>
+                    <p>One of our team will get in touch for a further discussion.</p>
+                    
+                    <form id="leadForm">
+                        <div class="form-group">
+                            <label>Property Scope</label>
+                            <div class="radio-grid">
+                                <div class="radio-btn">
+                                    <input type="radio" id="scope_interior" name="project_scope" value="Interior Only" checked>
+                                    <label for="scope_interior">Interior Only</label>
+                                </div>
+                                <div class="radio-btn">
+                                    <input type="radio" id="scope_exterior" name="project_scope" value="Exterior Only">
+                                    <label for="scope_exterior">Exterior Only</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <hr class="form-divider">
+
+                        <div class="form-group">
+                            <label for="name">Your Name *</label>
+                            <input type="text" id="name" name="name" required placeholder="John Doe">
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number *</label>
+                            <input type="tel" id="phone" name="phone" required placeholder="07123 456789">
+                        </div>
+                        <div class="form-group">
+                            <label for="postcode">Cardiff Postcode *</label>
+                            <input type="text" id="postcode" name="postcode" required placeholder="e.g. CF10">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message">Your Message (Optional)</label>
+                            <textarea id="message" name="message" placeholder="Tell us more about your project..." style="width: 100%; padding: 11px 14px; border: 1.5px solid var(--border); border-radius: 6px; font-size: 14px; color: var(--text); font-family: inherit; resize: vertical; min-height: 100px; transition: border-color 0.2s;"></textarea>
+                        </div>
+
+                        <button type="submit" class="btn">Submit Project Details</button>
+                    </form>
+                    <div class="form-success" id="formSuccess">
+                        <h3>Thank You!</h3>
+                        <p>We've received your details and will be in touch within 24 hours.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services -->
+        <section class="services">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Our Professional Decorating Services</h2>
+                    <p>Complete interior, exterior, and surface preparation solutions across Cardiff</p>
+                </div>
+                
+                <div class="services-grid">
+                    <div class="service-card prep">
+                        <div class="service-card-header prep">Preparation & Repairs</div>
+                        <div class="service-card-body">
+                            <ul>
+                                <li>Filling cracks and holes</li>
+                                <li>Sanding and surface preparation</li>
+                                <li>Paint stripping and removal</li>
+                                <li>Plaster patch repairs</li>
+                                <li>Damp stain blocking and sealing</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="service-card interior">
+                        <div class="service-card-header interior">Interior Painting & Decorating</div>
+                        <div class="service-card-body">
+                            <ul>
+                                <li>Interior wall and ceiling painting</li>
+                                <li>Feature wall painting</li>
+                                <li>Door, frame, and skirting board painting</li>
+                                <li>Wallpaper hanging and removal</li>
+                                <li>Lining paper installation</li>
+                                <li>Full room decoration</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="service-card exterior">
+                        <div class="service-card-header exterior">Exterior Painting Services</div>
+                        <div class="service-card-body">
+                            <ul>
+                                <li>Exterior house painting</li>
+                                <li>Fence painting and staining</li>
+                                <li>Decking painting and oiling</li>
+                                <li>Window frames and doors</li>
+                                <li>Garage doors and metalwork</li>
+                                <li>Masonry and weatherproof coatings</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pricing -->
+        <section class="pricing" id="detailed-quote">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Cardiff Decorating Investment Guide</h2>
+                    <p>Transparent benchmark rates based on regional interior and exterior property metrics</p>
+                </div>
+
+                <div class="pricing-box">
+                    <h3>Standard Interior Repaint</h3>
+                    <p>Covers walls, ceilings, and woodwork using premium matching tones with minor prep required.</p>
+                    <table class="pricing-table">
+                        <thead>
+                            <tr>
+                                <th>Property Size</th>
+                                <th>Starting Price</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>1 Bedroom Flat</td><td class="price-tag">&pound;900 &ndash; &pound;1,500</td></tr>
+                            <tr><td>2 Bedroom Flat / House</td><td class="price-tag">&pound;1,500 &ndash; &pound;2,500</td></tr>
+                            <tr><td>3 Bedroom House</td><td class="price-tag">&pound;2,500 &ndash; &pound;4,000</td></tr>
+                            <tr><td>4 Bedroom House (Premium Scope)</td><td class="price-tag">&pound;4,000 &ndash; &pound;6,500+</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="pricing-box">
+                    <h3>Standard Exterior Painting</h3>
+                    <p>Includes minor masonry washing, stabilizing primer, and premium weather-shield protective coatings.</p>
+                    <table class="pricing-table">
+                        <thead>
+                            <tr>
+                                <th>Project / Property Scope</th>
+                                <th>Starting Price</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Terraced House Facade (Front Only)</td><td class="price-tag">&pound;850 &ndash; &pound;1,400</td></tr>
+                            <tr><td>2-3 Bedroom Semi-Detached House (Full)</td><td class="price-tag">&pound;1,800 &ndash; &pound;3,200</td></tr>
+                            <tr><td>4 Bedroom Detached House (Premium Scope)</td><td class="price-tag">&pound;3,500 &ndash; &pound;5,500+</td></tr>
+                            <tr><td>External Sub-Elements (Fences, Decks, Trim Packages)</td><td class="price-tag">&pound;400 &ndash; &pound;1,200</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="pricing-factors">
+                    <div class="factor-card accent-border">
+                        <h4>Condition & Environmental Adjustments</h4>
+                        <p>Final valuations adapt dynamically to physical site demands. Rates scale upward if your project requires:</p>
+                        <ul>
+                            <li>Deep architectural micro-filling, scraping, or sanding</li>
+                            <li>Bespoke stain-blocking (water, soot, or biological external moss)</li>
+                            <li>Specialist access frameworks (advanced scaffolding for high gables)</li>
+                            <li>Extensive peeling paint stripping on weathered outdoor timbers</li>
+                            <li>Drastic tone adjustments demanding multiple coverage coats</li>
+                        </ul>
+                    </div>
+                    <div class="factor-card primary-border">
+                        <h4>Structural Metric Benchmarking</h4>
+                        <p>For rapid budget planning, calculate your property's primary target areas:</p>
+                        <p class="metric-highlight">&pound;12 &ndash; &pound;18 <span>per m&sup2; of floor area (Internal)</span></p>
+                        <p class="metric-note">Bespoke decorative schemes or intricate woodwork treatment plans scale toward &pound;20&ndash;&pound;30+ per m&sup2;.</p>
+                        <br>
+                        <p class="metric-highlight">&pound;25 &ndash; &pound;45 <span>per m&sup2; of wall area (External Masonry)</span></p>
+                        <p class="metric-note">Includes standard multi-coat exterior masonry applications; heavily cracked or rendered surfaces alter final metrics.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gallery -->
+        <section class="gallery">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Recent Transformations in Cardiff</h2>
+                    <p>Real results delivered straight to local residential neighborhoods</p>
+                </div>
+
+                <div class="gallery-grid">
+                    <div class="gallery-item" onclick="openModal('interior-1-before.jpg','interior-1-after.jpg')">
+                        <div class="gallery-images">
+                            <div class="gallery-half">
+                                <span class="gallery-badge">Before</span>
+                                <img src="interior-1-before.jpg" alt="Interior before - Room refurb" loading="lazy">
+                            </div>
+                            <div class="gallery-half">
+                                <span class="gallery-badge after">After</span>
+                                <img src="interior-1-after.jpg" alt="Interior after - Room refurb" loading="lazy">
+                            </div>
+                        </div>
+                        <div class="gallery-info">
+                            <h4>Room Refurb and Feature Wall</h4>
+                            <p>Click to view full size</p>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item" onclick="openModal('interior-2-before.jpg','interior-2-after.jpg')">
+                        <div class="gallery-images">
+                            <div class="gallery-half">
+                                <span class="gallery-badge">Before</span>
+                                <img src="interior-2-before.jpg" alt="Interior before - Fireplace" loading="lazy">
+                            </div>
+                            <div class="gallery-half">
+                                <span class="gallery-badge after">After</span>
+                                <img src="interior-2-after.jpg" alt="Interior after - Fireplace" loading="lazy">
+                            </div>
+                        </div>
+                        <div class="gallery-info">
+                            <h4>Room Refurbishment and Fireplace Renovation</h4>
+                            <p>Click to view full size</p>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item" onclick="openModal('interior-3-before.jpg','interior-3-after.jpg')">
+                        <div class="gallery-images">
+                            <div class="gallery-half">
+                                <span class="gallery-badge">Before</span>
+                                <img src="interior-3-before.jpg" alt="Interior before - Hallway" loading="lazy">
+                            </div>
+                            <div class="gallery-half">
+                                <span class="gallery-badge after">After</span>
+                                <img src="interior-3-after.jpg" alt="Interior after - Hallway" loading="lazy">
+                            </div>
+                        </div>
+                        <div class="gallery-info">
+                            <h4>Hallway and Staircase Transformation</h4>
+                            <p>Click to view full size</p>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item" onclick="openModal('exterior-1-before.jpg','exterior-1-after.jpg')">
+                        <div class="gallery-images">
+                            <div class="gallery-half">
+                                <span class="gallery-badge">Before</span>
+                                <img src="exterior-1-before.jpg" alt="Exterior before" loading="lazy">
+                            </div>
+                            <div class="gallery-half">
+                                <span class="gallery-badge after">After</span>
+                                <img src="exterior-1-after.jpg" alt="Exterior after" loading="lazy">
+                            </div>
+                        </div>
+                        <div class="gallery-info">
+                            <h4>Exterior Paint and Garage</h4>
+                            <p>Click to view full size</p>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item" onclick="openModal('exterior-2-before.jpg','exterior-2-after.jpg')">
+                        <div class="gallery-images">
+                            <div class="gallery-half">
+                                <span class="gallery-badge">Before</span>
+                                <img src="exterior-2-before.jpg" alt="Exterior before" loading="lazy">
+                            </div>
+                            <div class="gallery-half">
+                                <span class="gallery-badge after">After</span>
+                                <img src="exterior-2-after.jpg" alt="Exterior after" loading="lazy">
+                            </div>
+                        </div>
+                        <div class="gallery-info">
+                            <h4>Exterior Paint</h4>
+                            <p>Click to view full size</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Modal -->
+        <div class="modal-overlay" id="imageModal">
+            <div class="modal-content">
+                <button class="modal-close" onclick="closeModal()" aria-label="Close">&times;</button>
+                <div class="modal-images">
+                    <div class="modal-half">
+                        <span class="modal-label before">Before</span>
+                        <img id="beforeImg" src="" alt="Before">
+                    </div>
+                    <div class="modal-half">
+                        <span class="modal-label after">After</span>
+                        <img id="afterImg" src="" alt="After">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Testimonials -->
+        <section class="testimonials">
+            <div class="container">
+                <div class="section-header">
+                    <h2>What Cardiff Homeowners Say</h2>
+                </div>
+                <div class="testimonial-grid">
+                    <div class="testimonial-card">
+                        <p>"Meticulous work on our hallway and living room. They arrived sharp at 8 AM every day and left the place spotless."</p>
+                        <span class="client">Gareth M., Canton</span>
+                    </div>
+                    <div class="testimonial-card">
+                        <p>"Neart Decorating completely transformed the outside of our house. The clean lines on the window masonry look incredibly sharp."</p>
+                        <span class="client">Sian D., Cyncoed</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <h4>The Neart Standard</h4>
+                    <p>Neart Decorating, family-run business and a proud trading name of Neart Construction. We bring generational pride and uncompromising craftsmanship to every property we touch throughout Cardiff.</p>
+                </div>
+                <div>
+                    <h4>Direct Contact</h4>
+                    <p><strong>Phone:</strong> <a href="tel:07548173831">07548 173831</a></p>
+                    <p><strong>Email:</strong> <a href="mailto:info@neartconstruction.co.uk">info@neartconstruction.co.uk</a></p>
+                    <p style="font-style: italic;"><strong>Our Address:</strong><br>12 Change this address, Cardiff, CFXX XXX</p>
+                    <p style="font-size: 12px; margin-top: 12px; opacity: 0.6;">Serving Cardiff, Penarth, Radyr, Rumney, and nearby districts.</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Neart Decorating. All Corporate Entity Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/447548173831?text=Hi%20Neart%20Decorating,%20I'd%20like%20a%20quote%20for%20my%20decorating%20project." class="wa-float" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
+        <img src="whatsapp-icon.png" alt="WhatsApp">
+    </a>
+
+    <script>
+        // Modal
+        function openModal(beforeSrc, afterSrc) {
+            document.getElementById('beforeImg').src = beforeSrc;
+            document.getElementById('afterImg').src = afterSrc;
+            document.getElementById('imageModal').style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+        function closeModal() {
+            document.getElementById('imageModal').style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+        document.getElementById('imageModal').addEventListener('click', function(e) {
+            if (e.target === this) closeModal();
+        });
+
+        // Form submission
+        document.getElementById('leadForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const form = e.target;
+            const btn = form.querySelector('button[type="submit"]');
+            const originalText = btn.textContent;
+            btn.textContent = 'Sending...';
+            btn.disabled = true;
+
+            const data = {
+                project_scope: form.querySelector('input[name="project_scope"]:checked')?.value || '',
+                name: form.name.value,
+                phone: form.phone.value,
+                postcode: form.postcode.value,
+                message: form.message.value
+            };
+
+            try {
+                const res = await fetch('https://neart-form-worker.neartconstruction.workers.dev/submit', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(data)
+                });
+                if (res.ok) {
+                    form.style.display = 'none';
+                    document.getElementById('formSuccess').style.display = 'block';
+                } else {
+                    throw new Error('Server error');
+                }
+            } catch (err) {
+                // Fallback: open mailto
+                const subject = encodeURIComponent('New Lead from Website');
+                const body = encodeURIComponent(
+                    `Name: ${data.name}\nPhone: ${data.phone}\nPostcode: ${data.postcode}\nScope: ${data.project_scope}\nSize: ${data.property_size}\nStatus: ${data.property_status}`
+                );
+                window.location.href = `mailto:info@neartconstruction.co.uk?subject=${subject}&body=${body}`;
+                btn.textContent = originalText;
+                btn.disabled = false;
+            }
+        });
+    </script>
+</body>
+</html>
