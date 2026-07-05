@@ -586,85 +586,44 @@
             if (e.key === 'Escape') closeModal();
         });
 
+        async function submitToBasin(formData, successId, form, btn, originalText) {
+            try {
+                const res = await fetch('https://usebasin.com/f/3fedd3bb5eb1', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+                    body: JSON.stringify(Object.fromEntries(new FormData(form)))
+                });
+                if (res.ok) {
+                    form.style.display = 'none';
+                    document.getElementById(successId).style.display = 'block';
+                } else {
+                    throw new Error('Server error');
+                }
+            } catch (err) {
+                alert('Sorry, something went wrong. Please call us on 029 2168 0320.');
+                btn.textContent = originalText;
+                btn.disabled = false;
+            }
+        }
+
         // Contact form (bottom section)
         document.getElementById('contactForm').addEventListener('submit', async function(e) {
             e.preventDefault();
-            const form = e.target;
-            const btn = form.querySelector('button[type="submit"]');
+            const btn = e.target.querySelector('button[type="submit"]');
             const originalText = btn.textContent;
             btn.textContent = 'Sending...';
             btn.disabled = true;
-
-            const data = {
-                project_scope: form.project_scope.value,
-                name: form.name.value,
-                phone: form.phone.value,
-                email: form.email.value,
-                message: form.message.value
-            };
-
-            try {
-                const res = await fetch('https://neart-form-worker.neartconstruction.workers.dev/submit', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(data)
-                });
-                if (res.ok) {
-                    form.style.display = 'none';
-                    document.getElementById('contactFormSuccess').style.display = 'block';
-                } else {
-                    throw new Error('Server error');
-                }
-            } catch (err) {
-                const subject = encodeURIComponent('New Lead from Website');
-                const body = encodeURIComponent(
-                    `Name: ${data.name}\nPhone: ${data.phone}\nEmail: ${data.email}\nScope: ${data.project_scope}\nMessage: ${data.message}`
-                );
-                window.location.href = `mailto:info@neartdecorating.co.uk?subject=${subject}&body=${body}`;
-                btn.textContent = originalText;
-                btn.disabled = false;
-            }
+            await submitToBasin(null, 'contactFormSuccess', e.target, btn, originalText);
         });
 
-        // Form submission
+        // Hero quote form
         document.getElementById('leadForm').addEventListener('submit', async function(e) {
             e.preventDefault();
-            const form = e.target;
-            const btn = form.querySelector('button[type="submit"]');
+            const btn = e.target.querySelector('button[type="submit"]');
             const originalText = btn.textContent;
             btn.textContent = 'Sending...';
             btn.disabled = true;
-
-            const data = {
-                project_scope: form.project_scope.value,
-                name: form.name.value,
-                phone: form.phone.value,
-                email: form.email.value,
-                message: form.message.value
-            };
-
-            try {
-                const res = await fetch('https://neart-form-worker.neartconstruction.workers.dev/submit', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(data)
-                });
-                if (res.ok) {
-                    form.style.display = 'none';
-                    document.getElementById('formSuccess').style.display = 'block';
-                } else {
-                    throw new Error('Server error');
-                }
-            } catch (err) {
-                // Fallback: open mailto
-                const subject = encodeURIComponent('New Lead from Website');
-                const body = encodeURIComponent(
-                    `Name: ${data.name}\nPhone: ${data.phone}\nEmail: ${data.email}\nScope: ${data.project_scope}\nMessage: ${data.message}`
-                );
-                window.location.href = `mailto:info@neartdecorating.co.uk?subject=${subject}&body=${body}`;
-                btn.textContent = originalText;
-                btn.disabled = false;
-            }
+            await submitToBasin(null, 'formSuccess', e.target, btn, originalText);
         });
     </script>
 </body>
