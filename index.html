@@ -586,7 +586,7 @@
             if (e.key === 'Escape') closeModal();
         });
 
-        async function submitToBasin(formData, successId, form, btn, originalText) {
+        async function submitToBasin(form, btn, originalText) {
             try {
                 const res = await fetch('https://usebasin.com/f/3fedd3bb5eb1', {
                     method: 'POST',
@@ -594,8 +594,7 @@
                     body: JSON.stringify(Object.fromEntries(new FormData(form)))
                 });
                 if (res.ok) {
-                    form.style.display = 'none';
-                    document.getElementById(successId).style.display = 'block';
+                    window.location.href = '/thank-you';
                 } else {
                     throw new Error('Server error');
                 }
@@ -613,7 +612,7 @@
             const originalText = btn.textContent;
             btn.textContent = 'Sending...';
             btn.disabled = true;
-            await submitToBasin(null, 'contactFormSuccess', e.target, btn, originalText);
+            await submitToBasin(e.target, btn, originalText);
         });
 
         // Hero quote form
@@ -623,7 +622,7 @@
             const originalText = btn.textContent;
             btn.textContent = 'Sending...';
             btn.disabled = true;
-            await submitToBasin(null, 'formSuccess', e.target, btn, originalText);
+            await submitToBasin(e.target, btn, originalText);
         });
     </script>
 </body>
