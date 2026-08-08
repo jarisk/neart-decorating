@@ -217,6 +217,100 @@
             .pricing-box { padding: 20px; }
             .pricing-table th, .pricing-table td { padding: 10px 12px; font-size: 13px; }
         }
+        /* Google rating inside hero */
+.hero-google-rating {
+    display: inline-flex;
+    align-items: center;
+    gap: 16px;
+    margin: 0 0 22px;
+    padding: 15px 20px;
+    color: var(--text);
+    background: var(--white);
+    border-top: 5px solid #55b884;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+}
+
+.hero-google-logo {
+    position: relative;
+    flex: 0 0 52px;
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: conic-gradient(
+        from -42deg,
+        #4285f4 0deg 92deg,
+        #34a853 92deg 184deg,
+        #fbbc05 184deg 232deg,
+        #ea4335 232deg 360deg
+    );
+}
+
+.hero-google-logo::before {
+    content: "";
+    position: absolute;
+    inset: 11px;
+    border-radius: 50%;
+    background: var(--white);
+}
+
+.hero-google-logo::after {
+    content: "";
+    position: absolute;
+    top: 22px;
+    right: 0;
+    width: 26px;
+    height: 11px;
+    background: #4285f4;
+    box-shadow: 10px -10px 0 5px var(--white);
+}
+
+.hero-google-title {
+    margin: 0 0 4px !important;
+    color: var(--primary) !important;
+    font-size: 18px !important;
+    font-weight: 700;
+    line-height: 1.2 !important;
+}
+
+.hero-google-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.hero-google-score {
+    color: #d9822b;
+    font-size: 24px;
+    line-height: 1;
+}
+
+.hero-google-stars {
+    color: #ecad32;
+    font-size: 22px;
+    line-height: 1;
+    letter-spacing: 1px;
+}
+
+@media (max-width: 480px) {
+    .hero-google-rating {
+        gap: 12px;
+        padding: 13px 15px;
+    }
+
+    .hero-google-title {
+        font-size: 16px !important;
+    }
+
+    .hero-google-score {
+        font-size: 21px;
+    }
+
+    .hero-google-stars {
+        font-size: 18px;
+        letter-spacing: 0;
+    }
+}
     </style>
 <!-- Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({"gtm.start":
@@ -250,6 +344,25 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <div class="container hero-grid">
                 <div class="hero-text">
                     <h1>Premium Painting and Decorating in Cardiff</h1>
+
+<div
+    class="hero-google-rating"
+    role="img"
+    aria-label="Neart Decorating has a Google rating of 5 out of 5 stars"
+>
+    <span class="hero-google-logo" aria-hidden="true"></span>
+
+    <div>
+        <p class="hero-google-title">Google Rating</p>
+
+        <div class="hero-google-row">
+            <strong class="hero-google-score">5.0</strong>
+            <span class="hero-google-stars" aria-hidden="true">★★★★★</span>
+        </div>
+    </div>
+</div>
+
+<p>Transforming domestic and commercial spaces with flawless finishes. Dependable, fully insured local tradesmen. Get your free, detailed quote today.</p>
                     <p>Transforming domestic and commercial spaces with flawless finishes. Dependable, fully insured local tradesmen. Get your free, detailed quote today.</p>
                     <ul class="hero-checks">
                         <li>Dust-free sanding technology</li>
