@@ -1,4 +1,34 @@
 (() => {
+  const menuButton = document.querySelector(".mobile-menu-toggle");
+  const navigation = document.querySelector("nav.nav");
+  const locationDropdown = document.querySelector(".nav-dropdown");
+  const locationTrigger = document.querySelector(".nav-dropdown-trigger");
+
+  if (menuButton && navigation) {
+    menuButton.addEventListener("click", () => {
+      const open = navigation.classList.toggle("menu-open");
+      menuButton.setAttribute("aria-expanded", String(open));
+      menuButton.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+      document.body.classList.toggle("menu-visible", open);
+    });
+    navigation.querySelectorAll(".navlinks > a").forEach((link) => {
+      link.addEventListener("click", () => {
+        navigation.classList.remove("menu-open");
+        document.body.classList.remove("menu-visible");
+        menuButton.setAttribute("aria-expanded", "false");
+      });
+    });
+  }
+
+  if (locationTrigger && locationDropdown) {
+    locationTrigger.addEventListener("click", (event) => {
+      if (window.matchMedia("(max-width: 850px)").matches) {
+        event.preventDefault();
+        locationDropdown.classList.toggle("mobile-open");
+      }
+    });
+  }
+
   const key = "neart_cookie_choice";
   const banner = document.querySelector(".cookie-banner");
 
