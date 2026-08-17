@@ -1,0 +1,6 @@
+User-Agent: *
+Allow: /
+Disallow: /thank-you
+
+Host: https://neartdecorating.co.uk
+Sitemap: https://neartdecorating.co.uk/sitemap.xml
