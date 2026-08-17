@@ -22,9 +22,11 @@
 
   if (locationTrigger && locationDropdown) {
     locationTrigger.addEventListener("click", (event) => {
-      if (window.matchMedia("(max-width: 850px)").matches) {
+      if (window.innerWidth <= 850) {
         event.preventDefault();
+        event.stopPropagation();
         locationDropdown.classList.toggle("mobile-open");
+        locationTrigger.setAttribute("aria-expanded", String(locationDropdown.classList.contains("mobile-open")));
       }
     });
   }

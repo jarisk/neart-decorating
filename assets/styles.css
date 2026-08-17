@@ -12,7 +12,7 @@
   .nav.menu-open .navlinks{display:flex;position:fixed;z-index:94;top:70px;left:0;right:0;bottom:0;background:#fff;padding:30px 24px 90px;overflow-y:auto;flex-direction:column;align-items:stretch;gap:0;border-top:1px solid #e2ddd2}
   .nav.menu-open .navlinks>a,.nav.menu-open .nav-dropdown-trigger{display:flex;justify-content:space-between;align-items:center;color:#101d2b;font-size:20px;font-weight:600;padding:18px 0;border-bottom:1px solid #e2ddd2}
   .nav-dropdown-panel{position:static;width:100%;padding:20px 0 0;box-shadow:none;border:0;display:none;grid-template-columns:1fr;gap:22px;opacity:1;visibility:visible;pointer-events:auto;transform:none}
-  .nav-dropdown.mobile-open .nav-dropdown-panel{display:grid}
+  .nav-dropdown.mobile-open .nav-dropdown-panel,.nav-dropdown:focus-within .nav-dropdown-panel{display:grid}
   .nav-dropdown-group{gap:0}
   .nav-dropdown-group small{margin:0 0 8px}
   .nav-dropdown-group a{display:block;width:100%;padding:10px 0;font-size:16px}
