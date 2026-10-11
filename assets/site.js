@@ -7,7 +7,9 @@
  * - Shows the cookie banner until the visitor accepts or rejects optional cookies,
  *   and remembers the choice in localStorage ("neart_cookie_choice").
  * - "Cookie settings" in the footer clears the choice and shows the banner again.
- * - Sends the quote forms to Basin in the background and goes to /thank-you.html on success.
+ *
+ * The quote forms are plain HTML: they post straight to Basin, which redirects to the
+ * static thank-you page. No JavaScript is involved in submitting them.
  */
 (() => {
   const GTM_ID = "GTM-MFJQ4MFF";
@@ -110,35 +112,6 @@
         clearChoice();
         // Reload so tags that already ran under a previous choice stop running.
         window.location.reload();
-      });
-    });
-
-    // ---- Quote forms (Basin) ----------------------------------------------
-    document.querySelectorAll('form[action^="https://usebasin.com/"]').forEach((form) => {
-      form.addEventListener("submit", async (event) => {
-        event.preventDefault();
-        const submit = form.querySelector('button[type="submit"]');
-        const original = submit ? submit.textContent : "";
-        if (submit) {
-          submit.disabled = true;
-          submit.textContent = "Sending…";
-        }
-        try {
-          const response = await fetch(form.action, {
-            method: "POST",
-            headers: { Accept: "application/json" },
-            body: new FormData(form),
-          });
-          if (!response.ok) throw new Error("Basin returned " + response.status);
-          window.location.href = "/thank-you.html";
-        } catch {
-          // Fall back to a normal form post so the enquiry is never lost.
-          if (submit) {
-            submit.disabled = false;
-            submit.textContent = original;
-          }
-          HTMLFormElement.prototype.submit.call(form);
-        }
       });
     });
   }
