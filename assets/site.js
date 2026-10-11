@@ -7,7 +7,7 @@
  * - Shows the cookie banner until the visitor accepts or rejects optional cookies,
  *   and remembers the choice in localStorage ("neart_cookie_choice").
  * - "Cookie settings" in the footer clears the choice and shows the banner again.
- * - Sends the quote forms to Basin in the background and goes to /thank-you/ on success.
+ * - Sends the quote forms to Basin in the background and goes to /thank-you.html on success.
  */
 (() => {
   const GTM_ID = "GTM-MFJQ4MFF";
@@ -130,7 +130,7 @@
             body: new FormData(form),
           });
           if (!response.ok) throw new Error("Basin returned " + response.status);
-          window.location.href = "/thank-you/";
+          window.location.href = "/thank-you.html";
         } catch {
           // Fall back to a normal form post so the enquiry is never lost.
           if (submit) {
