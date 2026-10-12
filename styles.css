@@ -21,3 +21,41 @@
 .nav.open .nav-dropdown-group a{font-size:15px;padding:4px 0}
 .nav.open .nav-dropdown-all{margin:8px 0 0;padding:12px 0;border-top:0;font-size:15px}
 }
+
+
+
+/* Homepage About section */
+.about3{--a-bg:#fcf9f8;--a-ink:#071525;--a-gold:#aa7928;--a-muted:#737f90;--a-line:#eadfd2;--a-serif:"Source Serif 4","Playfair Display",Georgia,serif;background:var(--a-bg);color:var(--a-ink);overflow-x:clip}
+.about3-inner{max-width:1672px;margin:0 auto;padding:72px 20px 64px;display:grid;grid-template-columns:minmax(0,1fr);gap:40px}
+.about3-eyebrow{display:flex;align-items:center;gap:14px;margin:0;font:600 12px/1.2 Inter,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:var(--a-gold)}
+.about3-eyebrow:before{content:"";flex:none;width:40px;height:1.5px;background:var(--a-gold)}
+.about3-title{margin:22px 0 0;font:900 47px/.94 var(--a-serif);letter-spacing:-.027em;color:var(--a-ink)}
+.about3-intro{margin:28px 0 0;max-width:36em;font:400 19px/1.5 Inter,sans-serif;color:var(--a-ink)}
+.about3-support{margin:18px 0 0;max-width:30em;font:400 17px/1.65 Inter,sans-serif;color:var(--a-muted)}
+.about3-figure{margin:0}
+.about3-photo{display:block;width:100%;height:auto;aspect-ratio:414/606;object-fit:cover;border-radius:10px;background:#ece9e3}
+.about3-caption{display:flex;flex-direction:column;align-items:flex-start;margin-top:18px}
+.about3-name{font:850 32px/1 var(--a-serif);letter-spacing:-.02em;color:var(--a-ink)}
+.about3-role{margin-top:10px;font:600 12px/1.4 Inter,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:var(--a-gold)}
+.about3-role:after{content:"";display:block;width:40px;height:1.5px;margin-top:18px;background:var(--a-gold)}
+.about3-card{list-style:none;margin:0;padding:6px 22px;border:1px solid var(--a-line);border-radius:12px}
+.about3-card li{display:flex;align-items:flex-start;gap:20px;padding:26px 0}
+.about3-card li+li{border-top:1px solid var(--a-line)}
+.about3-icon{flex:none;width:64px;height:64px;border-radius:50%;background:#f4ece2;display:flex;align-items:center;justify-content:center}
+.about3-icon svg{width:60%;height:60%;fill:none;stroke:var(--a-gold);stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.about3-item-title{margin:6px 0 0;font:800 21px/1.2 var(--a-serif);letter-spacing:-.022em;color:var(--a-ink)}
+.about3-item-text{margin:10px 0 0;font:400 15px/1.7 Inter,sans-serif;letter-spacing:-.008em;color:var(--a-muted)}
+@media (min-width:640px){.about3-inner{padding:88px 32px 80px;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:48px 28px}.about3-text{grid-column:1/-1}.about3-title{font-size:66px}.about3-intro{font-size:21px}.about3-support{font-size:18px}.about3-card{align-self:start}}
+@media (min-width:1100px){
+.about3-inner{padding:8vw 3.95vw 4.85vw;grid-template-columns:minmax(0,634fr) minmax(0,414fr) minmax(0,434fr);column-gap:1.92vw;align-items:start}
+.about3-text{grid-column:auto}
+.about3-eyebrow{gap:.84vw;font-size:.9vw;padding-top:.05vw}.about3-eyebrow:before{width:3vw;height:max(1.5px,.09vw)}
+.about3-title{margin-top:2.3vw;font-size:6.2vw}
+.about3-intro{margin-top:3.05vw;max-width:36.5vw;font-size:1.64vw}
+.about3-support{margin-top:2.3vw;max-width:33vw;font-size:1.44vw}
+.about3-caption{margin-top:1.6vw}.about3-name{font-size:2.4vw}.about3-role{margin-top:.75vw;font-size:.9vw}.about3-role:after{width:2.7vw;height:max(1.5px,.09vw);margin-top:1.15vw}
+.about3-card{padding:1.25vw 1.3vw .35vw 1.8vw}.about3-card li{gap:1.67vw;padding:2.75vw 0}
+.about3-icon{width:5.26vw;height:5.26vw}
+.about3-item-title{margin-top:.6vw;font-size:1.64vw}.about3-item-text{margin-top:.7vw;font-size:1.02vw;line-height:1.72}
+}
+@media (min-width:1672px){.about3-inner{padding:134px 66px 81px;column-gap:32px}.about3-eyebrow{gap:14px;font-size:15px}.about3-eyebrow:before{width:50px}.about3-title{margin-top:38px;font-size:103.5px}.about3-intro{margin-top:51px;max-width:610px;font-size:27.5px}.about3-support{margin-top:38px;max-width:552px;font-size:24px}.about3-caption{margin-top:27px}.about3-name{font-size:40px}.about3-role{margin-top:12px;font-size:15px}.about3-role:after{width:45px;margin-top:19px}.about3-card{padding:21px 22px 6px 30px}.about3-card li{gap:28px;padding:46px 0}.about3-icon{width:88px;height:88px}.about3-item-title{margin-top:10px;font-size:27.4px}.about3-item-text{margin-top:12px;font-size:17px}}
