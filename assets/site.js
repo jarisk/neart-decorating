@@ -12,7 +12,43 @@
  *
  * The quote forms are plain HTML: they post straight to Basin, which redirects to the
  * static thank-you page. No JavaScript is involved in submitting them.
+ *
+ * - Mobile menu: the burger button opens the main menu. On mobile, the first tap on
+ *   "Services" or "Locations" opens its sub-list; a second tap goes to that page.
  */
+(() => {
+  const nav = document.querySelector(".nav");
+  const toggle = nav && nav.querySelector(".nav-toggle");
+  if (!toggle) return;
+  const isMobile = () => window.matchMedia("(max-width: 850px)").matches;
+  const setOpen = (open) => {
+    nav.classList.toggle("open", open);
+    toggle.setAttribute("aria-expanded", String(open));
+    toggle.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+    if (!open) nav.querySelectorAll(".nav-dropdown.expanded").forEach((d) => d.classList.remove("expanded"));
+  };
+  toggle.addEventListener("click", () => setOpen(!nav.classList.contains("open")));
+  nav.querySelectorAll(".nav-dropdown-trigger").forEach((trigger) => {
+    trigger.addEventListener("click", (event) => {
+      if (!isMobile()) return;
+      const dropdown = trigger.closest(".nav-dropdown");
+      if (!dropdown.classList.contains("expanded")) {
+        event.preventDefault();
+        nav.querySelectorAll(".nav-dropdown.expanded").forEach((d) => d.classList.remove("expanded"));
+        dropdown.classList.add("expanded");
+      }
+    });
+  });
+  // Close after choosing a link (needed for same-page links such as /#work).
+  nav.querySelectorAll(".navlinks a").forEach((link) => {
+    link.addEventListener("click", (event) => {
+      if (!event.defaultPrevented) setOpen(false);
+    });
+  });
+  document.addEventListener("keydown", (event) => { if (event.key === "Escape") setOpen(false); });
+  window.addEventListener("resize", () => { if (!isMobile()) setOpen(false); });
+})();
+
 (() => {
   const GTM_ID = "GTM-MFJQ4MFF";
   const STORAGE_KEY = "neart_cookie_choice";
