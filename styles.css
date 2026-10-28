@@ -59,3 +59,7 @@
 .about3-item-title{margin-top:.6vw;font-size:1.64vw}.about3-item-text{margin-top:.7vw;font-size:1.02vw;line-height:1.72}
 }
 @media (min-width:1672px){.about3-inner{padding:134px 66px 81px;column-gap:32px}.about3-eyebrow{gap:14px;font-size:15px}.about3-eyebrow:before{width:50px}.about3-title{margin-top:38px;font-size:103.5px}.about3-intro{margin-top:51px;max-width:610px;font-size:27.5px}.about3-support{margin-top:38px;max-width:552px;font-size:24px}.about3-caption{margin-top:27px}.about3-name{font-size:40px}.about3-role{margin-top:12px;font-size:15px}.about3-role:after{width:45px;margin-top:19px}.about3-card{padding:21px 22px 6px 30px}.about3-card li{gap:28px;padding:46px 0}.about3-icon{width:88px;height:88px}.about3-item-title{margin-top:10px;font-size:27.4px}.about3-item-text{margin-top:12px;font-size:17px}}
+
+/* Mid-width nav (851-1180px): keep all menu items and the phone number on one line. */
+.nav-call{white-space:nowrap}.navlinks a,.nav-dropdown-trigger{white-space:nowrap}
+@media (min-width:851px) and (max-width:1180px){.nav{gap:18px}.navlinks{gap:18px;font-size:13px}.brand img{width:120px}.nav-call{font-size:13px}.nav-dropdown:not(.nav-dropdown-services) .nav-dropdown-panel{left:auto;right:-20px;transform:translateY(8px)}.nav-dropdown:not(.nav-dropdown-services):hover .nav-dropdown-panel,.nav-dropdown:not(.nav-dropdown-services):focus-within .nav-dropdown-panel{transform:none}}
