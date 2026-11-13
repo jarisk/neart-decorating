@@ -1,6 +1,7 @@
 User-Agent: *
 Allow: /
 Disallow: /thank-you
+Disallow: /fb-ads/
 
 Host: https://neartdecorating.co.uk
 Sitemap: https://neartdecorating.co.uk/sitemap.xml
