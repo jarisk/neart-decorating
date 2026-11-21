@@ -71,3 +71,4 @@
 .guide-figure{margin:34px 0 30px}.guide-figure img{object-fit:cover;width:100%;height:auto}.guide-figure figcaption{color:var(--muted);margin-top:12px;font-size:14px;line-height:1.6}.guide-figure-pair{grid-template-columns:1fr 1fr;gap:12px;display:grid}.guide-figure-pair figcaption{grid-column:1/-1;margin-top:2px}.guide-figure-pair div{position:relative}.guide-figure-pair span{background:#091626d9;color:#fff;letter-spacing:.12em;text-transform:uppercase;padding:6px 10px;font-size:11px;font-weight:600;position:absolute;bottom:10px;left:10px}@media (max-width:560px){.guide-figure-pair{grid-template-columns:1fr}}
 .about-intro .intro-copy p{margin:0 0 18px}.about-intro .intro-copy .lead{margin-bottom:22px}
 .nav-dropdown:not(.nav-dropdown-services) .nav-dropdown-panel{left:-20px;right:auto}
+.guide-figure-single img{max-height:560px}
